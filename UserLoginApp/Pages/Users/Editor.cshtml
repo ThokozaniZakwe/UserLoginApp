@@ -1,0 +1,29 @@
+﻿@page "{id}"
+@model EditorModel
+
+<h5 class="bg-warning text-white text-center p-2">Edit User</h5>
+<form method="post">
+    @if(ModelState.ErrorCount > 0)
+    {
+        <div asp-validation-summary="All" class="alert alert-danger"></div>
+    }
+    <div class="mb-2">
+        <label class="form-control">ID</label>
+        <input name="Id" class="form-control" value="@Model.Id" disabled />
+        <input name="Id" type="hidden" value="@Model.Id" />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">User Name</label>
+        <input name="UserName" class="form-control" value="@Model.UserName" />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">Email</label>
+        <input name="Email" class="form-control" value="@Model.Email" />
+    </div>
+    <div class="mb-2">
+        <label class="form-label">New Password</label>
+        <input name="Password" type="password" class="form-control" value="@Model.Password" />
+    </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+    <a class="btn btn-secondary" asp-page="list">Cancel</a>
+</form>
